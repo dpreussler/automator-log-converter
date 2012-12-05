@@ -47,7 +47,7 @@ public class Converter {
         outputter.setOutput(currentFile);
         outputter.startTestSuite(testSuiteName);
 
-        String[] lines = streamToRead.split("\r\n");
+        String[] lines = streamToRead.split(System.getProperty("line.separator"));
         parser.processNewLines(lines);
         parser.done();
         outputter.endTestSuite(testSuiteName, 0);
