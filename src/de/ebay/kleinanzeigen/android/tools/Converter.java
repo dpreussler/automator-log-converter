@@ -47,7 +47,8 @@ public class Converter {
         outputter.setOutput(currentFile);
         outputter.startTestSuite(testSuiteName);
 
-        parser.processNewLines(streamToRead.split(System.getProperty("line.separator")));
+        String[] lines = streamToRead.split("\r\n");
+        parser.processNewLines(lines);
         parser.done();
         outputter.endTestSuite(testSuiteName, 0);
         currentFile.close();
@@ -72,7 +73,7 @@ public class Converter {
                 try {
                     String error = reader.readLine();
                     String[] errorSeperated = error.split(":");
-                    outputter.addFailure(test, errorSeperated[1].trim(), errorSeperated[0].trim(), arg2.substring(error.length()));
+                    outputter.addFailure(test, errorSeperated.length > 1 ? errorSeperated[1].trim() : "Failed", errorSeperated[0].trim(), arg2.substring(error.length()));
                 } catch (IOException e) {
                     e.printStackTrace();
                     outputter.addFailure(test, e);
