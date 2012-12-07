@@ -27,7 +27,7 @@ public class Runner {
 
         if (args.length == 0) {
             System.out.println("usage: convert <filename>");
-            System.out.println("(c) Kijiji GmbH, Germany");
+            System.out.println("(c) ebay inc");
             return;
         }
 
