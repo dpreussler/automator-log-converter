@@ -10,7 +10,7 @@ output: file with JUnit XML
 
 Author: dpreussler@ebay.de
 
-(c) ebay inc, 2012
+(c) Danny Preussler, 2012,2013
 
 Contains Apache ANT. Android DDMLib, licensed under Apache 2.0
 
