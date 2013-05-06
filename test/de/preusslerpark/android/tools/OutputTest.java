@@ -25,6 +25,12 @@ public class OutputTest {
     }
     
     @Test
+    public void test_cut_off_messages() throws IOException {
+        testByFile("test_cut_off_messages");
+    }
+    
+    
+    @Test
     public void test_file_with_one_exception() throws IOException {
         testByFile("test_file_with_one_exception");
     }

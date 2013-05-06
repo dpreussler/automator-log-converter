@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite hostname="LM-TXL-00389669" name="test_cut_off_messages"  >
+  <properties />
+  <testcase classname="com.uia.example.my.DeviceSetup" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Installation" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Activation" name="testDevice" >
+    <failure message="Assert Sign in screen appear expected" type="junit.framework.ComparisonFailure">
+	at com.uia.example.my.Activation.testDevice(Activation.java:52)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+  </testcase>
+  <testcase classname="com.uia.example.my.Login" name="testDevice" >
+    <failure message="for text= &quot;Play Music&quot;" type="com.android.uiautomator.core.UiObjectNotFoundException">
+	at com.android.uiautomator.core.UiCollection.getChildByText(UiCollection.java:125)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:201)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:181)
+	at com.uia.example.my.Login.openInAppsMenu(Login.java:550)
+	at com.uia.example.my.Login.testDevice(Login.java:302)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+  </testcase>
+  <testcase classname="com.uia.example.my.MainScreen" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Accounts" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Transfer" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Messages" name="testDevice" >
+    <failure message="Assert new message shown in messages screen" type="junit.framework.AssertionFailedError">
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+    <failure message="Assert new message shown in messages screen" type="junit.framework.AssertionFailedError">
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+  </testcase>
+  <testcase classname="com.uia.example.my.Graphs" name="testDevice"  />
+  <testcase classname="com.uia.example.my.About" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Setup" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Help" name="testDevice"  />
+  <testcase classname="com.uia.example.my.Uninstall" name="testDevice"  />
+</testsuite>

@@ -1,0 +1,322 @@
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.DeviceSetup
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.DeviceSetup:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+Application not installed
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.DeviceSetup
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Installation
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Installation:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Installation
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Activation
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Activation:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Activation
+INSTRUMENTATION_STATUS: stream=
+Failure in testDevice:
+junit.framework.ComparisonFailure: Assert Sign in screen appear expected:<[CGS MFM - Account Sign In]> but was:<[]>
+	at com.uia.example.my.Activation.testDevice(Activation.java:52)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: stack=junit.framework.ComparisonFailure: Assert Sign in screen appear expected:<[CGS MFM - Account Sign In]> but was:<[]>
+	at com.uia.example.my.Activation.testDevice(Activation.java:52)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Login
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Login:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+http://192.168.1.3:85/android/mfm-debug.apk
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Login
+INSTRUMENTATION_STATUS: stream=
+Error in testDevice:
+com.android.uiautomator.core.UiObjectNotFoundException: for text= "Play Music"
+	at com.android.uiautomator.core.UiCollection.getChildByText(UiCollection.java:125)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:201)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:181)
+	at com.uia.example.my.Login.openInAppsMenu(Login.java:550)
+	at com.uia.example.my.Login.testDevice(Login.java:302)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: stack=com.android.uiautomator.core.UiObjectNotFoundException: for text= "Play Music"
+	at com.android.uiautomator.core.UiCollection.getChildByText(UiCollection.java:125)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:201)
+	at com.android.uiautomator.core.UiScrollable.getChildByText(UiScrollable.java:181)
+	at com.uia.example.my.Login.openInAppsMenu(Login.java:550)
+	at com.uia.example.my.Login.testDevice(Login.java:302)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: -1
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.MainScreen
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.MainScreen:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.MainScreen
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Accounts
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Accounts:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Accounts
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Transfer
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Transfer:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Transfer
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Messages
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Messages:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Messages
+INSTRUMENTATION_STATUS: stream=
+Failure in testDevice:
+junit.framework.AssertionFailedError: Assert new message shown in messages screen
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: stack=junit.framework.AssertionFailedError: Assert new message shown in messages screen
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Graphs
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Graphs:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Graphs
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Messages
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Messages:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Messages
+INSTRUMENTATION_STATUS: stream=
+Failure in testDevice:
+junit.framework.AssertionFailedError: Assert new message shown in messages screen
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: stack=junit.framework.AssertionFailedError: Assert new message shown in messages screen
+	at com.uia.example.my.Messages.testDevice(Messages.java:172)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:87)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:90)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.About
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.About:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.About
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Setup
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Setup:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+can't find text to click OK
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Setup
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Help
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Help:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Help
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Uninstall
+INSTRUMENTATION_STATUS: stream=
+com.uia.example.my.Uninstall:
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.uia.example.my.Uninstall
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=14
+INSTRUMENTATION_STATUS: test=testDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+Test results for WatcherResultPrinter=...F.E....F..F....
+Time: 1800.78
+
+FAILURES!!!
+Tests run: 14,  Failures: 3,  Errors: 1
+
+
+INSTRUMENTATION_STATUS_CODE: -1
