@@ -16,7 +16,7 @@
  *
  */
 
-package de.ebay.kleinanzeigen.android.tools;
+package de.preusslerpark.android.tools;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -293,6 +293,8 @@ public class XMLResultFormatter implements XMLConstants {
     }
 
     private void formatError(String type, TestIdentifier test, String message, String className, String strace) {
+        
+        strace = strace.replace("\r", ""); 
         if (test != null) {
             endTest(test);
             failedTests.put(test, test);

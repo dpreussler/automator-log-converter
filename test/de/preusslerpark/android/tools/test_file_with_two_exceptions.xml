@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite hostname="LM-TXL-00389669" name="test_file_with_two_exceptions" time="0.0" timestamp="2012-12-05T07:24:18">
+  <properties />
+  <testcase classname="com.ebay.kleinanzeigen.test.BrowseTest" name="testBrowseCategories" time="0.0" />
+  <testcase classname="com.ebay.kleinanzeigen.test.BrowseTest" name="testGoToVIP" time="0.0" />
+  <testcase classname="com.ebay.kleinanzeigen.test.LoginTest" name="testLoginFail" time="0.0" />
+  <testcase classname="com.ebay.kleinanzeigen.test.LoginTest" name="testLoginPass" time="0.0010" />
+  <testcase classname="com.ebay.kleinanzeigen.test.PostTest" name="testPostHausKaufen" time="0.0010">
+    <failure message="UiSelector[CLASS=android.widget.EditText, INDEX=10]" type="com.android.uiautomator.core.UiObjectNotFoundException">
+	at com.android.uiautomator.core.UiObject.clearTextField(UiObject.java:492)
+	at com.android.uiautomator.core.UiObject.setText(UiObject.java:466)
+	at com.ebay.kleinanzeigen.test.PostTest.testPostHausKaufen(PostTest.java:31)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:124)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:85)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:76)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+  </testcase>
+  <testcase classname="com.ebay.kleinanzeigen.test.SearchTest" name="testSearchByCategory" time="0.0">
+    <failure message="Failed" type="junit.framework.AssertionFailedError">
+	at com.ebay.kleinanzeigen.test.SearchTest.testSearchByCategory(SearchTest.java:36)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:124)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:85)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:76)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+</failure>
+  </testcase>
+  <testcase classname="com.ebay.kleinanzeigen.test.SearchTest" name="testSearchByKeyword" time="0.0" />
+</testsuite>

@@ -8,9 +8,10 @@ Reads Android UI automator file outout and write a JUNIT Xml file. For example f
 input: file with output from automator (simply redirect it to file)
 output: file with JUnit XML
 
-Author: dpreussler@ebay.de
+("usage: java -jar uiautomator2junit.jar convert <filename>");
 
-(c) Danny Preussler, 2012,2013
+
+(c) Danny Preussler, 2012,2013 (dpreussler@ebay.de)
 
 Contains Apache ANT. Android DDMLib, licensed under Apache 2.0
 

@@ -15,7 +15,7 @@
  *  limitations under the License.
  *
  */
-package de.ebay.kleinanzeigen.android.tools;
+package de.preusslerpark.android.tools;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -33,21 +33,27 @@ public class Converter {
     private final String testSuiteName;
     private final String outPath;
 
-    public Converter(String testSuiteName, String outPath) {
-        this.testSuiteName = testSuiteName;
-        this.outPath = outPath;
+    public static Converter createConverForFile(String testSuiteName, String outPath) {
+        return new Converter(testSuiteName, outPath, true);
+    }
+    
+    public static Converter createConverForPath(String testSuiteName, String outPath) {
+        return new Converter(testSuiteName, outPath, false);
     }
 
-    public void convert(String streamToRead) throws IOException, FileNotFoundException {
+    private Converter(String testSuiteName, String outPath, boolean isFilename) {
+        this.testSuiteName = testSuiteName;
+        this.outPath = isFilename ? outPath : outPath + testSuiteName + ".xml";
+    }
 
+    public void convert(String streamToRead) throws FileNotFoundException, IOException {
+        FileOutputStream currentFile = new FileOutputStream(outPath);
         final XMLResultFormatter outputter = new XMLResultFormatter();
         InstrumentationResultParser parser = createParser(testSuiteName, outputter);
-
-        FileOutputStream currentFile = new FileOutputStream(outPath + testSuiteName + ".xml");
         outputter.setOutput(currentFile);
         outputter.startTestSuite(testSuiteName);
 
-        String[] lines = streamToRead.split(System.getProperty("line.separator"));
+        String[] lines = streamToRead.split("\n");;
         parser.processNewLines(lines);
         parser.done();
         outputter.endTestSuite(testSuiteName, 0);

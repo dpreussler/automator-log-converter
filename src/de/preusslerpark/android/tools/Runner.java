@@ -15,11 +15,13 @@
  *  limitations under the License.
  *
  */
-package de.ebay.kleinanzeigen.android.tools;
+package de.preusslerpark.android.tools;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import org.apache.tools.ant.util.FileUtils;
 
 public class Runner {
 
@@ -47,7 +49,7 @@ public class Runner {
 
         String testSuite = getPureFileName(inFile.substring(path.length() + pathsep.length(), inFile.length()));
 
-        new Converter(testSuite, path + pathsep).convert(readEntireFile(inFile));
+        Converter.createConverForPath(testSuite, path + pathsep).convert(readEntireFile(inFile));
     }
 
     private static String getPureFileName(String inFile) {
@@ -57,18 +59,11 @@ public class Runner {
 
     private static String readEntireFile(String filename) throws IOException {
         FileReader in = new FileReader(filename);
-        StringBuilder contents = new StringBuilder();
-        char[] buffer = new char[4096];
-        int read = 0;
         try {
-            do {
-                contents.append(buffer, 0, read);
-                read = in.read(buffer);
-            } while (read >= 0);
-            return contents.toString();
+            return FileUtils.readFully(in).replace("\r", "");    
         } finally {
             in.close();
         }
-
+        
     }
 }

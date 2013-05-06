@@ -1,0 +1,162 @@
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.BrowseTest
+INSTRUMENTATION_STATUS: stream=
+com.ebay.kleinanzeigen.test.BrowseTest:
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testBrowseCategories
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.BrowseTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testBrowseCategories
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.BrowseTest
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testGoToVIP
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.BrowseTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testGoToVIP
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+Test results for UiAutomatorTestRunner=..
+Time: 24.415
+
+OK (2 tests)
+
+
+INSTRUMENTATION_STATUS_CODE: -1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.LoginTest
+INSTRUMENTATION_STATUS: stream=
+com.ebay.kleinanzeigen.test.LoginTest:
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testLoginFail
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.LoginTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testLoginFail
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.LoginTest
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testLoginPass
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.LoginTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testLoginPass
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+Test results for UiAutomatorTestRunner=..
+Time: 51.611
+
+OK (2 tests)
+
+
+INSTRUMENTATION_STATUS_CODE: -1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.PostTest
+INSTRUMENTATION_STATUS: stream=
+com.ebay.kleinanzeigen.test.PostTest:
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: test=testPostHausKaufen
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.PostTest
+INSTRUMENTATION_STATUS: stream=
+Error in testPostHausKaufen:
+com.android.uiautomator.core.UiObjectNotFoundException: UiSelector[CLASS=android.widget.EditText, INDEX=1]
+	at com.android.uiautomator.core.UiObject.clearTextField(UiObject.java:492)
+	at com.android.uiautomator.core.UiObject.setText(UiObject.java:466)
+	at com.ebay.kleinanzeigen.test.PostTest.testPostHausKaufen(PostTest.java:29)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:124)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:85)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:76)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=com.android.uiautomator.core.UiObjectNotFoundException: UiSelector[CLASS=android.widget.EditText, INDEX=1]
+	at com.android.uiautomator.core.UiObject.clearTextField(UiObject.java:492)
+	at com.android.uiautomator.core.UiObject.setText(UiObject.java:466)
+	at com.ebay.kleinanzeigen.test.PostTest.testPostHausKaufen(PostTest.java:29)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:124)
+	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.run(UiAutomatorTestRunner.java:85)
+	at com.android.commands.uiautomator.RunTestCommand.run(RunTestCommand.java:76)
+	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:235)
+	at dalvik.system.NativeStart.main(Native Method)
+
+INSTRUMENTATION_STATUS: test=testPostHausKaufen
+INSTRUMENTATION_STATUS_CODE: -1
+INSTRUMENTATION_STATUS: stream=
+Test results for UiAutomatorTestRunner=.E
+Time: 61.27
+
+FAILURES!!!
+Tests run: 1,  Failures: 0,  Errors: 1
+
+
+INSTRUMENTATION_STATUS_CODE: -1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.SearchTest
+INSTRUMENTATION_STATUS: stream=
+com.ebay.kleinanzeigen.test.SearchTest:
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testSearchByCategory
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.SearchTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testSearchByCategory
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.SearchTest
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testSearchByKeyword
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+INSTRUMENTATION_STATUS: class=com.ebay.kleinanzeigen.test.SearchTest
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: test=testSearchByKeyword
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+Test results for UiAutomatorTestRunner=..
+Time: 44.294
+
+OK (2 tests)
+
+
+INSTRUMENTATION_STATUS_CODE: -1
