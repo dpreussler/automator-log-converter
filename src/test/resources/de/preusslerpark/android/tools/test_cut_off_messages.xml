@@ -4,7 +4,7 @@
   <testcase classname="com.uia.example.my.DeviceSetup" name="testDevice"  />
   <testcase classname="com.uia.example.my.Installation" name="testDevice"  />
   <testcase classname="com.uia.example.my.Activation" name="testDevice" >
-    <failure message="Assert Sign in screen appear expected" type="junit.framework.ComparisonFailure">
+    <failure message="Assert Sign in screen appear expected:&lt;[CGS MFM - Account Sign In]&gt; but was:&lt;[]&gt;" type="junit.framework.ComparisonFailure">
 	at com.uia.example.my.Activation.testDevice(Activation.java:52)
 	at java.lang.reflect.Method.invokeNative(Native Method)
 	at com.android.uiautomator.testrunner.UiAutomatorTestRunner.start(UiAutomatorTestRunner.java:144)

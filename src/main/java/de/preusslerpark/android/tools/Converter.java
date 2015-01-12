@@ -78,7 +78,7 @@ public class Converter {
                 BufferedReader reader = new BufferedReader(new StringReader(arg2));
                 try {
                     String error = reader.readLine();
-                    String[] errorSeperated = error.split(":");
+                    String[] errorSeperated = error.split(":", 2);
                     outputter.addFailure(test, errorSeperated.length > 1 ? errorSeperated[1].trim() : "Failed", errorSeperated[0].trim(), arg2.substring(error.length()));
                 } catch (IOException e) {
                     e.printStackTrace();
