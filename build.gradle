@@ -1,4 +1,14 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'eu.appsatori.fatjar'
 
 repositories {
     mavenCentral()
@@ -7,14 +17,4 @@ repositories {
 dependencies {
  compile fileTree(dir: 'libs', include: '*.jar')
  compile 'junit:junit:4.11'
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'de.preusslerpark.android.tools.Runner'
-    }
-
-    into('lib') {
-        from 'libs'
-    }
 }
