@@ -17,53 +17,58 @@
  */
 package de.preusslerpark.android.tools;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
-
-import org.apache.tools.ant.util.FileUtils;
 
 public class Runner {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        if (args.length == 0) {
-            System.out.println("usage: convert <filename>");
-            return;
+        if (args.length == 1) {
+           convert(args[0]);
         }
-
-        convert(args);
-    }
-
-
-    private static void convert(String[] args) throws IOException, FileNotFoundException {
-
-        String inFile = args[0];
-        String pathsep = System.getProperty("file.separator");
-        String path;
-        if (inFile.contains(pathsep)) {
-            path = inFile.substring(0, inFile.lastIndexOf(pathsep));
-        } else {
-            path = "./";
+        else {
+           System.out.println("usage: convert <filename>");
         }
-
-        String testSuite = getPureFileName(inFile.substring(path.length() + pathsep.length(), inFile.length()));
-
-        Converter.createConverForPath(testSuite, path + pathsep).convert(readEntireFile(inFile));
-    }
-
-    private static String getPureFileName(String inFile) {
-        return inFile.split("\\.")[0];
     }
 
 
-    private static String readEntireFile(String filename) throws IOException {
-        FileReader in = new FileReader(filename);
-        try {
-            return FileUtils.readFully(in).replace("\r", "");    
-        } finally {
-            in.close();
-        }
-        
+    private static void convert(String inputFilePath) {
+        File inputFile = new File(inputFilePath);
+        String parentPath = getParentPath(inputFile);
+        String testSuite = getTestSuiteName(inputFile);
+        String outputFilePath = parentPath + File.separator + testSuite + ".xml";
+        File outputFile = createOutput(outputFilePath);
+        Converter.create(inputFile, outputFile).convert();
     }
+
+    static String getParentPath(File file) {
+      String filePath = file.getAbsolutePath();
+      String fileName = file.getName();
+      return filePath.replace(fileName, "");
+   }
+
+    static String getTestSuiteName(File file) {
+      String fileName = file.getName();
+      System.out.println(fileName);
+      System.out.println(fileName.substring(0,fileName.lastIndexOf('.')));
+      return fileName.substring(0,fileName.lastIndexOf('.'));
+    }
+
+    static File createOutput(String outputFilePath) {
+      File outputFile = new File(outputFilePath);
+      if (outputFile.exists()) {
+         if (!outputFile.delete()) {
+            throw new RuntimeException("could not delete existing output file");
+         }
+      }
+      try {
+         if (!outputFile.createNewFile()) {
+            throw new RuntimeException("could not create the new output file");
+         }
+      }
+      catch (IOException e) {
+      }
+      return outputFile;
+   }
 }

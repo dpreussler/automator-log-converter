@@ -18,11 +18,14 @@
 package de.preusslerpark.android.tools;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Map;
+import org.apache.tools.ant.util.FileUtils;
 
 import com.android.ddmlib.testrunner.ITestRunListener;
 import com.android.ddmlib.testrunner.InstrumentationResultParser;
@@ -31,33 +34,46 @@ import com.android.ddmlib.testrunner.TestIdentifier;
 public class Converter {
 
     private final String testSuiteName;
-    private final String outPath;
+    private final File inputFile;
+    private final File outputFile;
 
-    public static Converter createConverForFile(String testSuiteName, String outPath) {
-        return new Converter(testSuiteName, outPath, true);
-    }
-    
-    public static Converter createConverForPath(String testSuiteName, String outPath) {
-        return new Converter(testSuiteName, outPath, false);
-    }
+    public static Converter create(File inputFile, File outputFile) {
+      return new Converter(inputFile, outputFile);
+   }
 
-    private Converter(String testSuiteName, String outPath, boolean isFilename) {
-        this.testSuiteName = testSuiteName;
-        this.outPath = isFilename ? outPath : outPath + testSuiteName + ".xml";
-    }
+    private Converter(File inputFile, File outputFile) {
+      this.testSuiteName = Runner.getTestSuiteName(inputFile);
+      this.inputFile = inputFile;
+      this.outputFile = outputFile;
+   }
+   private static String readEntireFile(String filename) throws IOException {
+       FileReader in = new FileReader(filename);
+       try {
+           return FileUtils.readFully(in).replace("\r", "");
+       } finally {
+           in.close();
+       }
+   }
 
-    public void convert(String streamToRead) throws FileNotFoundException, IOException {
-        FileOutputStream currentFile = new FileOutputStream(outPath);
-        final XMLResultFormatter outputter = new XMLResultFormatter();
-        InstrumentationResultParser parser = createParser(testSuiteName, outputter);
-        outputter.setOutput(currentFile);
-        outputter.startTestSuite(testSuiteName);
+    public void convert() {
+      try {
+         String streamToRead = readEntireFile(inputFile.getAbsolutePath());
+           FileOutputStream currentFile = new FileOutputStream(outputFile.getAbsolutePath());
+           final XMLResultFormatter outputter = new XMLResultFormatter();
+           InstrumentationResultParser parser = createParser(testSuiteName, outputter);
+           outputter.setOutput(currentFile);
+           outputter.startTestSuite(testSuiteName);
 
-        String[] lines = streamToRead.split("\n");;
-        parser.processNewLines(lines);
-        parser.done();
-        outputter.endTestSuite(testSuiteName, 0);
-        currentFile.close();
+           String[] lines = streamToRead.split("\n");;
+           parser.processNewLines(lines);
+           parser.done();
+           outputter.endTestSuite(testSuiteName, 0);
+           currentFile.close();
+      }
+      catch( FileNotFoundException ef) {
+      }
+      catch( IOException eio) {
+      }
     }
 
     private InstrumentationResultParser createParser(String testSuite, final XMLResultFormatter outputter) {
