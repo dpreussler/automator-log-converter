@@ -20,10 +20,18 @@ package de.preusslerpark.android.tools;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * the main class of the tool
+ */
 public class Runner {
 
+	/**
+	 * the main method will only run if it has 1 argument that is the 
+	 * file name. the file name is the relative path to the file or the
+	 * absolute path to the file
+	 * @param args
+	 */
     public static void main(String[] args) {
-
         if (args.length == 1) {
            convert(args[0]);
         }
@@ -32,8 +40,13 @@ public class Runner {
         }
     }
 
-
-    private static void convert(String inputFilePath) {
+    /**
+     * from the input file name, the test suite name is extracted
+     * and used to create an output xml file based on the test 
+     * suite name
+     * @param inputFilePath
+     */
+    static void convert(String inputFilePath) {
         File inputFile = new File(inputFilePath);
         String parentPath = getParentPath(inputFile);
         String testSuite = getTestSuiteName(inputFile);
@@ -42,12 +55,23 @@ public class Runner {
         Converter.create(inputFile, outputFile).convert();
     }
 
+    /**
+     * gets the parent folder from the absolute path of the file
+     * @param file
+     * @return
+     */
     static String getParentPath(File file) {
       String filePath = file.getAbsolutePath();
       String fileName = file.getName();
       return filePath.replace(fileName, "");
    }
 
+    /**
+     * gets the test suite name or the name of the file not including the file
+     * extension
+     * @param file
+     * @return
+     */
     static String getTestSuiteName(File file) {
       String fileName = file.getName();
       System.out.println(fileName);
@@ -55,6 +79,12 @@ public class Runner {
       return fileName.substring(0,fileName.lastIndexOf('.'));
     }
 
+    /**
+     * if an output file exists, clear it out and create
+     * a new one
+     * @param outputFilePath
+     * @return
+     */
     static File createOutput(String outputFilePath) {
       File outputFile = new File(outputFilePath);
       if (outputFile.exists()) {

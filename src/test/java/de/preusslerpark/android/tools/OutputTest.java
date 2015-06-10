@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,25 +13,14 @@ import java.io.OutputStream;
 import java.io.Reader;
 
 import org.apache.tools.ant.util.FileUtils;
-import org.junit.Before;
 import org.junit.Test;
 
-
 public class OutputTest {
-    
-    File tmp;
-    
-    @Before
-    public void setup() throws IOException {
-        tmp = File.createTempFile("logconverter", null);
-        tmp.deleteOnExit();
-    }
     
     @Test
     public void test_cut_off_messages() throws IOException {
         testByFile("test_cut_off_messages");
     }
-    
     
     @Test
     public void test_file_with_one_exception() throws IOException {
@@ -58,9 +46,17 @@ public class OutputTest {
         
         assertEquals(expected, actual);
         
-        tmp.deleteOnExit();
+        tmpTestInput.deleteOnExit();
+        tmpXml.deleteOnExit();
+        tmpTestOutput.deleteOnExit();
     }
     
+    /**
+     * extracts a resource file and writes it to the temporary folder
+     * @param resourceFileName
+     * @return
+     * @throws IOException
+     */
     private File extractResourceFile(String resourceFileName) throws IOException {
     	 InputStream is = this.getClass().getResourceAsStream("./" + resourceFileName);
     	 

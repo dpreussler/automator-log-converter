@@ -37,6 +37,13 @@ public class Converter {
     private final File inputFile;
     private final File outputFile;
 
+    /**
+     * converter factory creates a converter instance given an input file to be converted
+     * and an output file 
+     * @param inputFile
+     * @param outputFile
+     * @return
+     */
     public static Converter create(File inputFile, File outputFile) {
       return new Converter(inputFile, outputFile);
    }
@@ -46,6 +53,7 @@ public class Converter {
       this.inputFile = inputFile;
       this.outputFile = outputFile;
    }
+    
    private static String readEntireFile(String filename) throws IOException {
        FileReader in = new FileReader(filename);
        try {
@@ -55,6 +63,9 @@ public class Converter {
        }
    }
 
+   /**
+    * reads the input file and creates an output file
+    */
     public void convert() {
       try {
          String streamToRead = readEntireFile(inputFile.getAbsolutePath());
