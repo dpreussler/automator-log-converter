@@ -17,53 +17,88 @@
  */
 package de.preusslerpark.android.tools;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 
-import org.apache.tools.ant.util.FileUtils;
-
+/**
+ * the main class of the tool
+ */
 public class Runner {
 
-    public static void main(String[] args) throws IOException {
-
-        if (args.length == 0) {
-            System.out.println("usage: convert <filename>");
-            return;
+	/**
+	 * the main method will only run if it has 1 argument that is the 
+	 * file name. the file name is the relative path to the file or the
+	 * absolute path to the file
+	 * @param args
+	 */
+    public static void main(String[] args) {
+        if (args.length == 1) {
+           convert(args[0]);
         }
-
-        convert(args);
-    }
-
-
-    private static void convert(String[] args) throws IOException, FileNotFoundException {
-
-        String inFile = args[0];
-        String pathsep = System.getProperty("file.separator");
-        String path;
-        if (inFile.contains(pathsep)) {
-            path = inFile.substring(0, inFile.lastIndexOf(pathsep));
-        } else {
-            path = "./";
+        else {
+           System.out.println("usage: convert <filename>");
         }
-
-        String testSuite = getPureFileName(inFile.substring(path.length() + pathsep.length(), inFile.length()));
-
-        Converter.createConverForPath(testSuite, path + pathsep).convert(readEntireFile(inFile));
     }
 
-    private static String getPureFileName(String inFile) {
-        return inFile.split("\\.")[0];
+    /**
+     * from the input file name, the test suite name is extracted
+     * and used to create an output xml file based on the test 
+     * suite name
+     * @param inputFilePath
+     */
+    static void convert(String inputFilePath) {
+        File inputFile = new File(inputFilePath);
+        String parentPath = getParentPath(inputFile);
+        String testSuite = getTestSuiteName(inputFile);
+        String outputFilePath = parentPath + File.separator + testSuite + ".xml";
+        File outputFile = createOutput(outputFilePath);
+        Converter.create(inputFile, outputFile).convert();
     }
 
+    /**
+     * gets the parent folder from the absolute path of the file
+     * @param file
+     * @return
+     */
+    static String getParentPath(File file) {
+      String filePath = file.getAbsolutePath();
+      String fileName = file.getName();
+      return filePath.replace(fileName, "");
+   }
 
-    private static String readEntireFile(String filename) throws IOException {
-        FileReader in = new FileReader(filename);
-        try {
-            return FileUtils.readFully(in).replace("\r", "");    
-        } finally {
-            in.close();
-        }
-        
+    /**
+     * gets the test suite name or the name of the file not including the file
+     * extension
+     * @param file
+     * @return
+     */
+    static String getTestSuiteName(File file) {
+      String fileName = file.getName();
+      System.out.println(fileName);
+      System.out.println(fileName.substring(0,fileName.lastIndexOf('.')));
+      return fileName.substring(0,fileName.lastIndexOf('.'));
     }
+
+    /**
+     * if an output file exists, clear it out and create
+     * a new one
+     * @param outputFilePath
+     * @return
+     */
+    static File createOutput(String outputFilePath) {
+      File outputFile = new File(outputFilePath);
+      if (outputFile.exists()) {
+         if (!outputFile.delete()) {
+            throw new RuntimeException("could not delete existing output file");
+         }
+      }
+      try {
+         if (!outputFile.createNewFile()) {
+            throw new RuntimeException("could not create the new output file");
+         }
+      }
+      catch (IOException e) {
+      }
+      return outputFile;
+   }
 }

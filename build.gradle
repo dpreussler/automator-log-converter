@@ -1,20 +1,25 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
-    }
-}
-
 apply plugin: 'java'
-apply plugin: 'eu.appsatori.fatjar'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
- compile fileTree(dir: 'libs', include: '*.jar')
+ compile 'org.apache.ant:ant:1.9.5'
+ compile 'org.apache.ant:ant-junit:1.9.5'
  compile 'junit:junit:4.11'
+ compile 'com.android.tools.ddms:ddmlib:22.0'
+
+}
+
+version = '1.0.0-SNAPSHOT'
+jar {
+  from {
+    (configurations.runtime).collect{
+      it.isDirectory() ? it : zipTree(it)
+    }
+  }
+  manifest {
+    attributes("Main-Class": "de.preusslerpark.android.tools.Runner")
+  }
 }
