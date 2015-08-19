@@ -36,7 +36,7 @@ public class Runner {
            convert(args[0]);
         }
         else {
-           System.out.println("usage: convert <filename>");
+           System.out.println("usage: <filename>");
         }
     }
 
