@@ -8,7 +8,7 @@ Reads Android UI automator file outout and write a JUNIT Xml file. For example f
 input: file with output from automator (simply redirect it to file)
 output: file with JUnit XML
 
-("usage: java -jar uiautomator2junit.jar convert <filename>");
+usage: `java -jar uiautomator2junit.jar <filename>`
 
 
 (c) Danny Preussler, 2012 - 2015
