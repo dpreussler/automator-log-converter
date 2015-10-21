@@ -13,6 +13,18 @@ output: file with JUnit XML
 usage: `java -jar uiautomator2junit.jar <filename>`
 
 
+Gradle
+======
+
+get from maven central:
+http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22automator-log-converter%22
+
+```groovy
+compile 'de.jodamob.android:automator-log-converter:1.5.0'
+ 
+```
+
+
 (c) Danny Preussler, 2012 - 2015
 
 Contains Apache ANT. Android DDMLib, licensed under Apache 2.0
