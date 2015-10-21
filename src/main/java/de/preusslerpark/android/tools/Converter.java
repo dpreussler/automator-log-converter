@@ -17,25 +17,27 @@
  */
 package de.preusslerpark.android.tools;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.Map;
-import org.apache.tools.ant.util.FileUtils;
-
 import com.android.ddmlib.testrunner.ITestRunListener;
 import com.android.ddmlib.testrunner.InstrumentationResultParser;
 import com.android.ddmlib.testrunner.TestIdentifier;
+
+import org.apache.tools.ant.util.FileUtils;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Map;
 
 public class Converter {
 
     private final String testSuiteName;
     private final File inputFile;
     private final File outputFile;
+    private int testCount;
+    private int testsFailed;
 
     /**
      * converter factory creates a converter instance given an input file to be converted
@@ -46,10 +48,18 @@ public class Converter {
      */
     public static Converter create(File inputFile, File outputFile) {
       return new Converter(inputFile, outputFile);
-   }
+    }
+
+    static Converter create(File inputFile, File outputFile, String testSuiteName) {
+        return new Converter(inputFile, outputFile, testSuiteName);
+    }
 
     private Converter(File inputFile, File outputFile) {
-      this.testSuiteName = Runner.getTestSuiteName(inputFile);
+        this(inputFile, outputFile, Runner.getTestSuiteName(inputFile));
+    }
+
+    private Converter(File inputFile, File outputFile, String testSuiteName) {
+      this.testSuiteName = testSuiteName;
       this.inputFile = inputFile;
       this.outputFile = outputFile;
    }
@@ -67,24 +77,33 @@ public class Converter {
     * reads the input file and creates an output file
     */
     public void convert() {
-      try {
-         String streamToRead = readEntireFile(inputFile.getAbsolutePath());
-           FileOutputStream currentFile = new FileOutputStream(outputFile.getAbsolutePath());
-           final XMLResultFormatter outputter = new XMLResultFormatter();
-           InstrumentationResultParser parser = createParser(testSuiteName, outputter);
-           outputter.setOutput(currentFile);
-           outputter.startTestSuite(testSuiteName);
+        convert(new XMLResultFormatter());
+    }
 
-           String[] lines = streamToRead.split("\n");;
-           parser.processNewLines(lines);
-           parser.done();
-           outputter.endTestSuite(testSuiteName, 0);
-           currentFile.close();
-      }
-      catch( FileNotFoundException ef) {
-      }
-      catch( IOException eio) {
-      }
+    public void convert(XMLResultFormatter outputter) {
+        testsFailed = 0;
+        testCount = 0;
+        try {
+          tryConvert(outputter);
+        }
+        catch( IOException e) {
+        }
+    }
+
+    private void tryConvert(XMLResultFormatter outputter) throws IOException {
+        String streamToRead = readEntireFile(inputFile.getAbsolutePath());
+        FileOutputStream currentFile = new FileOutputStream(outputFile.getAbsolutePath());
+        InstrumentationResultParser parser = createParser(testSuiteName, outputter);
+        outputter.setOutput(currentFile);
+        outputter.startTestSuite(testSuiteName);
+
+        String[] lines = streamToRead.split("\n");
+        ;
+        parser.processNewLines(lines);
+        parser.done();
+        outputter.setTestCounts(testCount, testsFailed);
+        outputter.endTestSuite(testSuiteName, 0);
+        currentFile.close();
     }
 
     private InstrumentationResultParser createParser(String testSuite, final XMLResultFormatter outputter) {
@@ -96,6 +115,7 @@ public class Converter {
             public void testEnded(TestIdentifier test, Map<String, String> arg1) {
                 System.out.println("testEnded " + test);
                 outputter.endTest(test);
+                testCount++;
             }
 
             @Override
@@ -111,57 +131,32 @@ public class Converter {
                     e.printStackTrace();
                     outputter.addFailure(test, e);
                 }
-
+                testsFailed++;
             }
 
             @Override
             public void testRunEnded(long elapsedTime, Map<String, String> arg1) {
-                // System.out.println("testRunEnded " + elapsedTime + "/" + arg1);
-                // outputter.endTestSuite(currentSuite, elapsedTime);
-
             }
 
             @Override
             public void testRunFailed(String name) {
                 System.out.println("testRunFailed " + name);
-                // outputter.endTestSuite(name, 0);
-
             }
 
             @Override
             public void testRunStarted(String name, int arg1) {
-                // System.out.println("testRunStarted " + name + "/" + arg1);
-                // if (name.equals(currentSuite)) {
-                // name = name + "1";
-                // }
-                // currentSuite = name;
-                // try {
-                // if (currentFile != null) {
-                // currentFile.close();
-                // }
-                // currentFile = new FileOutputStream(outPath + currentSuite + ".xml");
-                // }
-                // catch (IOException e) {
-                // }
-                //
-                // outputter.setOutput(currentFile);
-                // outputter.startTestSuite(currentSuite);
             }
 
             @Override
             public void testRunStopped(long elapsedTime) {
-                // outputter.endTestSuite(currentSuite, elapsedTime);
             }
 
             @Override
             public void testStarted(final TestIdentifier test) {
                 System.out.println("testStarted " + test.toString());
                 outputter.startTest(test);
-
-
             }
         };
         return new InstrumentationResultParser(testSuite, listener);
     }
-
 }

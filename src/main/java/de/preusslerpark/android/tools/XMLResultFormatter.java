@@ -134,25 +134,19 @@ public class XMLResultFormatter implements XMLConstants {
 		 // Output properties
 		 Element propsElement = doc.createElement(PROPERTIES);
 		 rootElement.appendChild(propsElement);
-		 // Properties props = suite.getProperties();
-		 // if (props != null) {
-		 // Enumeration e = props.propertyNames();
-		 // while (e.hasMoreElements()) {
-		 // String name = (String) e.nextElement();
-		 // Element propElement = doc.createElement(PROPERTY);
-		 // propElement.setAttribute(ATTR_NAME, name);
-		 // propElement.setAttribute(ATTR_VALUE, props.getProperty(name));
-		 // propsElement.appendChild(propElement);
-		 // }
-		 // }
 	 }
+
+	public void setTestCounts(int testCount, int testsFailed) {
+	      rootElement.setAttribute("tests", String.valueOf(testCount));
+	      rootElement.setAttribute("failures", String.valueOf(testsFailed));
+	}
 
 	 /**
 	  * get the local hostname
 	  * 
 	  * @return the name of the local host, or "localhost" if we cannot work it out
 	  */
-	 private String getHostname() {
+	 protected String getHostname() {
 		 try {
 			 return InetAddress.getLocalHost().getHostName();
 		 } catch (UnknownHostException e) {

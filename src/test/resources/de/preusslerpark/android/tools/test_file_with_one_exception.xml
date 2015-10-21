@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite hostname="DENB0738.local" name="test_file_with_one_exception" time="0.0" timestamp="2012-12-05T13:32:58">
+<testsuite failures="1" hostname="DENB0738.local" name="test_file_with_one_exception" tests="7"  >
   <properties />
   <testcase classname="com.ebay.kleinanzeigen.test.BrowseTest" name="testBrowseCategories" time="0.0" />
   <testcase classname="com.ebay.kleinanzeigen.test.BrowseTest" name="testGoToVIP" time="0.0" />

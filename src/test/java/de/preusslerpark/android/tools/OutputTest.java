@@ -1,19 +1,19 @@
 package de.preusslerpark.android.tools;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import org.apache.tools.ant.util.FileUtils;
+import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-
-import org.apache.tools.ant.util.FileUtils;
-import org.junit.Test;
 
 public class OutputTest {
     
@@ -40,7 +40,12 @@ public class OutputTest {
     	File tmpXml = extractResourceFile(testSuiteName + ".xml");
     	File tmpTestOutput = File.createTempFile(prefix, suffix);
     	
-    	Converter.create(tmpTestInput, tmpTestOutput).convert();
+    	Converter.create(tmpTestInput, tmpTestOutput, testSuiteName).convert(new XMLResultFormatter() {
+            @Override
+            protected String getHostname() {
+                return "DENB0738.local";
+            }
+        });
     	String actual = readFullyAndTimeless(new InputStreamReader(new FileInputStream(tmpTestOutput)));
         String expected = readFullyAndTimeless(new InputStreamReader(new FileInputStream(tmpXml)));
         
@@ -85,8 +90,7 @@ public class OutputTest {
          try {
              return FileUtils.readFully(reader)
             		 .replaceAll("time=\"[0-9]*.[0-9]*\"", "")
-            		 .replaceAll("timestamp=\"[^\"]*\"", "")
-            		 .replaceAll("<testsuite \\S* \\S*( )+>", "<testsuite>");
+            		 .replaceAll("timestamp=\"[^\"]*\"", "");
          } finally {
              reader.close();
          }
