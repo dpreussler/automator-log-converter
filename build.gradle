@@ -1,4 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
 
 repositories {
     mavenCentral()
@@ -11,8 +14,21 @@ dependencies {
  compile 'com.android.tools.ddms:ddmlib:22.0'
 
 }
+/*
+ * Gets the version name from the latest Git tag
+ */
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
 
-version = '1.0.0-SNAPSHOT'
+version = getVersionName()
+group = 'de.jodamob.android'
+
 jar {
   from {
     (configurations.runtime).collect{
@@ -22,4 +38,69 @@ jar {
   manifest {
     attributes("Main-Class": "de.preusslerpark.android.tools.Runner")
   }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+compileJava {
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'autmator-log-converter'
+                packaging 'jar'
+                description 'Android UI Automator to JUnit Format Converter'
+                url 'https://github.com/dpreussler/automator-log-converter'
+
+                scm {
+                    url 'scm:git@github.com:dpreussler/automator-log-converter.git'
+                    connection 'scm:git@github.com:dpreussler/automator-log-converter.git'
+                    developerConnection 'scm:git@github.com:dpreussler/automator-log-converter.git'
+                }
+
+                licenses {
+                    license {
+                        name 'Apache 2.0'
+                        url 'http://www.apache.org/LICENSES/LICENSE-2.0'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'dpreussler'
+                        name 'Danny Preussler'
+                    }
+                }
+            }
+        }
+    }
 }
