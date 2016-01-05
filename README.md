@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/dpreussler/automator-log-converter.svg?branch=master)](https://travis-ci.org/dpreussler/automator-log-converter)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/automator-log-converter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/automator-log-converter)
+
 
 automator-log-converter
 =======================
