@@ -119,8 +119,8 @@ public class Converter {
             }
 
             @Override
-            public void testFailed(TestFailure arg0, TestIdentifier test, String arg2) {
-                System.out.println("testFailed " + arg0 + "/" + arg2);
+            public void testFailed(TestIdentifier test, String arg2) {
+                System.out.println("testFailed " + arg2);
 
                 BufferedReader reader = new BufferedReader(new StringReader(arg2));
                 try {
@@ -150,7 +150,15 @@ public class Converter {
             @Override
             public void testRunStopped(long elapsedTime) {
             }
-
+            
+            @Override
+            public void testIgnored(TestIdentifier test) {
+            }
+            
+            @Override
+            public void testAssumptionFailure(TestIdentifier test, String trace) {
+            }
+            
             @Override
             public void testStarted(final TestIdentifier test) {
                 System.out.println("testStarted " + test.toString());

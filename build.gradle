@@ -5,13 +5,16 @@ apply plugin: 'signing'
 
 repositories {
     mavenCentral()
+    maven {
+	url "https://maven.google.com/"
+    }
 }
 
 dependencies {
  compile 'org.apache.ant:ant:1.9.5'
  compile 'org.apache.ant:ant-junit:1.9.5'
  compile 'junit:junit:4.11'
- compile 'com.android.tools.ddms:ddmlib:22.0'
+ compile 'com.android.tools.ddms:ddmlib:26.5.1'
 
 }
 /*
