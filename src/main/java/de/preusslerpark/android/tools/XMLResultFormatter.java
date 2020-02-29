@@ -119,10 +119,10 @@ public class XMLResultFormatter implements XMLConstants {
 	  * @param suite
 	  *            the testsuite.
 	  */
-	 public void startTestSuite(String n) {
+	 public void startTestSuite(String suite) {
 		 doc = getDocumentBuilder().newDocument();
 		 rootElement = doc.createElement(TESTSUITE);
-		 rootElement.setAttribute(ATTR_NAME, n == null ? UNKNOWN : n);
+		 rootElement.setAttribute(ATTR_NAME, suite == null ? UNKNOWN : suite);
 
 		 // add the timestamp
 		 final String timestamp = DateUtils.format(new Date(),
@@ -162,7 +162,7 @@ public class XMLResultFormatter implements XMLConstants {
 	  * @throws BuildException
 	  *             on error.
 	  */
-	 public void endTestSuite(String name, long time) throws BuildException {
+	 public void endTestSuite(String suite, long time) throws BuildException {
 		 // rootElement.setAttribute(ATTR_TESTS, "" + suite.runCount());
 		 // rootElement.setAttribute(ATTR_FAILURES, "" + suite.failureCount());
 		 // rootElement.setAttribute(ATTR_ERRORS, "" + suite.errorCount());
