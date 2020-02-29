@@ -22,12 +22,12 @@ get from maven central:
 http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22automator-log-converter%22
 
 ```groovy
-compile 'de.jodamob.android:automator-log-converter:1.5.0'
+compile 'de.jodamob.android:automator-log-converter:1.6.0'
  
 ```
 
 
-(c) Danny Preussler, 2012 - 2015
+(c) Danny Preussler, 2012 - 2020
 
 Contains Apache ANT. Android DDMLib, licensed under Apache 2.0
 
