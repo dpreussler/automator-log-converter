@@ -22,7 +22,7 @@ get from maven central:
 http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22automator-log-converter%22
 
 ```groovy
-compile 'de.jodamob.android:automator-log-converter:1.6.0'
+compile 'de.jodamob.android:automator-log-converter:1.6.0-1-g46e78e3'
  
 ```
 
